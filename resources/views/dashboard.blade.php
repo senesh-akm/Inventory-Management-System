@@ -76,12 +76,12 @@
                     </div>
                 </div>
 
-                <canvas id="salesChart"></canvas>
+                {{-- <canvas id="salesChart"></canvas> --}}
             </div>
         </div>
     </main>
 
-    @push('scripts')
+    {{-- @push('scripts')
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 var ctx = document.getElementById('salesChart').getContext('2d');
@@ -104,5 +104,5 @@
                 });
             });
         </script>
-    @endpush
+    @endpush --}}
 @endsection
