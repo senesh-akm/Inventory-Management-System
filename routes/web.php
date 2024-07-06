@@ -19,3 +19,4 @@ Route::get('/customers', [CustomerController::class, 'index'])->name('customers.
 Route::get('/customers/create', [CustomerController::class, 'create'])->name('customers.create');
 Route::post('/customers', [CustomerController::class, 'store'])->name('customers.store');
 Route::get('/customers/{id}', [CustomerController::class, 'show'])->name('customers.show');
+Route::resource('customers', CustomerController::class);
