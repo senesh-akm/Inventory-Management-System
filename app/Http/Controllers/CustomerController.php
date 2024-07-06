@@ -14,9 +14,9 @@ class CustomerController extends Controller
         return view('customerlist', compact('customers'));
     }
 
-    public function show($CustomerCode)
+    public function show($id)
     {
-        $customer = Customer::findOrFail($CustomerCode);
+        $customer = Customer::findOrFail($id);
         return view('customer', compact('customer'));
     }
 
@@ -56,5 +56,37 @@ class CustomerController extends Controller
         ]);
 
         return redirect()->route('customers.index')->with('success', 'Customer Added Successfully!');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'CustomerCode' => 'required|string|max:5',
+            'Customer' => 'required|string',
+            'ContactTitle' => 'required|string|max:255',
+            'ContactName' => 'required|string|max:255',
+            'Address' => 'required|string|max:255',
+            'City' => 'required|string|max:255',
+            'PostalCode' => 'required|string|max:20',
+            'Country' => 'required|string|max:255',
+            'Phone' => 'required|string|max:20',
+            'Email' => 'required|string|max:255'
+        ]);
+
+        $customer = Customer::findOrFail($id);
+        $customer->update([
+            'CustomerCode' => $request->CustomerCode,
+            'Customer' => $request->Customer,
+            'ContactTitle' => $request->ContactTitle,
+            'ContactName' => $request->ContactName,
+            'Address' => $request->Address,
+            'City' => $request->City,
+            'PostalCode' => $request->PostalCode,
+            'Country' => $request->Country,
+            'Phone' => $request->Phone,
+            'Email' => $request->Email
+        ]);
+
+        return redirect()->route('customers.index')->with('success', 'Customer Updated Successfully!');
     }
 }

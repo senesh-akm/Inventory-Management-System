@@ -6,11 +6,11 @@
     <main class="mt-5">
         <h2>Customer List</h2>
         <div class="row">
-            <div class="col text-right">
+            <div class="col text-right mt-3">
                 <a href="{{ route('customers.create') }}" class="btn btn-primary">Add Customer</a>
             </div>
         </div>
-        <table class="table table-striped table-bordered">
+        <table class="table mt-3">
             <thead>
                 <tr>
                     <th style="width: 20%;">Customer Code</th>
@@ -20,8 +20,12 @@
             <tbody>
                 @foreach ($customers as $customer)
                     <tr>
-                        <td>{{ $customer->CustomerCode }}</td>
-                        <td><a href="{{ route('customers.show', ['id' => $customer->id]) }}">{{ $customer->Customer }}</a></td>
+                        <td style="text-decoration: none; color: black; font-weight: bold;">{{ $customer->CustomerCode }}</td>
+                        <td>
+                            <a href="{{ route('customers.show', ['id' => $customer->id]) }}" style="text-decoration: none; color: black; font-weight: bold;">
+                                {{ $customer->Customer }}
+                            </a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
