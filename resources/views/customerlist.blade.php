@@ -22,7 +22,7 @@
                     <tr>
                         <td style="text-decoration: none; color: black; font-weight: bold;">{{ $customer->CustomerCode }}</td>
                         <td>
-                            <a href="{{ route('customers.show', ['id' => $customer->id]) }}" style="text-decoration: none; color: black; font-weight: bold;">
+                            <a href="{{ route('customers.show', $customer->id) }}" style="text-decoration: none; color: black; font-weight: bold;">
                                 {{ $customer->Customer }}
                             </a>
                         </td>
