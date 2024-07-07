@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -20,3 +21,9 @@ Route::get('/customers/create', [CustomerController::class, 'create'])->name('cu
 Route::post('/customers', [CustomerController::class, 'store'])->name('customers.store');
 Route::get('/customers/{Customer}', [CustomerController::class, 'show'])->name('customers.show');
 Route::resource('customers', CustomerController::class);
+
+Route::get('/suppliers', [SupplierController::class, 'index'])->name('suppliers.index');
+Route::get('/suppliers/create', [SupplierController::class, 'create'])->name('suppliers.create');
+Route::post('/suppliers', [SupplierController::class, 'store'])->name('suppliers.store');
+Route::get('/suppliers/{SupplierName}', [SupplierController::class, 'show'])->name('suppliers.show');
+Route::resource('suppliers', SupplierController::class);
