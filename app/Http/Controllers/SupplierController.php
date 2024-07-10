@@ -20,6 +20,13 @@ class SupplierController extends Controller
         return view('supplier');
     }
 
+    // Show the supplier details
+    public function show($id)
+    {
+        $supplier = Supplier::findOrFail($id);
+        return view('supplier', compact('supplier'));
+    }
+
     // Create new suppliers
     public function store(Request $request)
     {
@@ -68,8 +75,8 @@ class SupplierController extends Controller
             'Email' => 'required|string|max:255'
         ]);
 
-        $suppliers = Supplier::findOrFail($id);
-        $suppliers->update([
+        $supplier = Supplier::findOrFail($id);
+        $supplier->update([
             'SupplierCode' => $request->SupplierCode,
             'SupplierName' => $request->SupplierName,
             'ContactTitle' => $request->ContactTitle,

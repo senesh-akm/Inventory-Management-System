@@ -25,5 +25,6 @@ Route::resource('customers', CustomerController::class);
 Route::get('/suppliers', [SupplierController::class, 'index'])->name('suppliers.index');
 Route::get('/suppliers/create', [SupplierController::class, 'create'])->name('suppliers.create');
 Route::post('/suppliers', [SupplierController::class, 'store'])->name('suppliers.store');
-Route::get('/suppliers/{SupplierName}', [SupplierController::class, 'show'])->name('suppliers.show');
-Route::resource('suppliers', SupplierController::class);
+Route::get('/suppliers/{id}', [SupplierController::class, 'show'])->name('suppliers.show');
+Route::put('/suppliers/{id}', [SupplierController::class, 'update'])->name('suppliers.update');
+Route::resource('suppliers', SupplierController::class)->except(['index', 'create', 'store', 'show', 'update']);
