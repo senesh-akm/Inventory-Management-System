@@ -4,7 +4,7 @@
 
 @section('content')
     <main class="mt-5">
-        <h2>Suppliers List</h2>
+        <h2>Supplier List</h2>
         <div class="row">
             <div class="col text-right mt-3">
                 <a href="{{ route('suppliers.create') }}" class="btn btn-primary">+ Add Supplier</a>
@@ -23,7 +23,7 @@
                         <td style="text-decoration: none; color: black;">{{ $supplier->SupplierCode }}</td>
                         <td>
                             <a href="{{ route('suppliers.show', $supplier->id) }}" style="text-decoration: none; color: black;">
-                                {{ $supplier->SupplierName }}
+                                {{ $supplier->Supplier }}
                             </a>
                         </td>
                     </tr>

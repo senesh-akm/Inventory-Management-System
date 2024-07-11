@@ -32,7 +32,7 @@ class SupplierController extends Controller
     {
         $request->validate([
             'SupplierCode' => 'required|string|max:5',
-            'SupplierName' => 'required|string',
+            'Supplier' => 'required|string',
             'ContactTitle' => 'required|string|max:255',
             'ContactName' => 'required|string|max:255',
             'Address' => 'required|string|max:255',
@@ -45,7 +45,7 @@ class SupplierController extends Controller
 
         Supplier::create([
             'SupplierCode' => $request->SupplierCode,
-            'SupplierName' => $request->SupplierName,
+            'Supplier' => $request->Supplier,
             'ContactTitle' => $request->ContactTitle,
             'ContactName' => $request->ContactName,
             'Address' => $request->Address,
@@ -64,7 +64,7 @@ class SupplierController extends Controller
     {
         $request->validate([
             'SupplierCode' => 'required|string|max:5',
-            'SupplierName' => 'required|string',
+            'Supplier' => 'required|string',
             'ContactTitle' => 'required|string|max:255',
             'ContactName' => 'required|string|max:255',
             'Address' => 'required|string|max:255',
@@ -78,7 +78,7 @@ class SupplierController extends Controller
         $supplier = Supplier::findOrFail($id);
         $supplier->update([
             'SupplierCode' => $request->SupplierCode,
-            'SupplierName' => $request->SupplierName,
+            'Supplier' => $request->Supplier,
             'ContactTitle' => $request->ContactTitle,
             'ContactName' => $request->ContactName,
             'Address' => $request->Address,
