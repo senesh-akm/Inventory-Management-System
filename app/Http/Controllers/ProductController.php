@@ -24,7 +24,8 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::findOrFail($id);
-        return view('products.show', compact('product'));
+        $suppliers = Supplier::all();
+        return view('product', compact('product', 'suppliers'));
     }
 
     public function edit($id)
