@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
@@ -40,3 +41,10 @@ Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('pro
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
+
+// product category module
+Route::get('/productCategories', [CategoryController::class, 'index'])->name('productCategories.index');
+Route::get('/productCategories/create', [CategoryController::class, 'create'])->name('productCategories.create');
+Route::post('/productCategories', [CategoryController::class, 'store'])->name('productCategories.store');
+Route::get('/productCategories/{CategorName}', [CategoryController::class, 'show'])->name('productCategories.show');
+Route::resource('productCategories', [CategoryController::class]);
