@@ -15,7 +15,7 @@ class CategoryController extends Controller
 
     public function show($CategorName)
     {
-        $productCategories = Category::findOrFail($CategorName);
+        $productCategory = Category::where('CategorName', $CategorName)->firstOrFail();
         return view('productcategory', compact('productCategory'));
     }
 
@@ -31,27 +31,21 @@ class CategoryController extends Controller
             'Description' => 'required|string|max:255'
         ]);
 
-        Category::create([
-            'CategorName' => $request->CategorName,
-            'Description' => $request->Description
-        ]);
+        Category::create($request->only(['CategorName', 'Description']));
 
-        return redirect()->route('productCategories.index')->with('success', 'Customer Added Successfully!');
+        return redirect()->route('productCategories.index')->with('success', 'Product Category Added Successfully!');
     }
 
     public function update(Request $request, $CategorName)
     {
         $request->validate([
-            'CategorName' => 'required|string|max:',
-            'Description' => 'required|string'
+            'CategorName' => 'required|string|max:30',
+            'Description' => 'required|string|max:255'
         ]);
 
-        $productCategories = Category::findOrFail($CategorName);
-        Category::create([
-            'CategorName' => $request->CategorName,
-            'Description' => $request->Description
-        ]);
+        $productCategory = Category::where('CategorName', $CategorName)->firstOrFail();
+        $productCategory->update($request->only(['CategorName', 'Description']));
 
-        return redirect()->route('productCategories.index')->with('success', 'Customer Updated Successfully!');
+        return redirect()->route('productCategories.index')->with('success', 'Product Category Updated Successfully!');
     }
 }
