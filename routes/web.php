@@ -47,4 +47,4 @@ Route::get('/productCategories', [CategoryController::class, 'index'])->name('pr
 Route::get('/productCategories/create', [CategoryController::class, 'create'])->name('productCategories.create');
 Route::post('/productCategories', [CategoryController::class, 'store'])->name('productCategories.store');
 Route::get('/productCategories/{CategorName}', [CategoryController::class, 'show'])->name('productCategories.show');
-Route::resource('productCategories', [CategoryController::class]);
+Route::resource('productCategories', CategoryController::class);
