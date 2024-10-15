@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
@@ -48,3 +49,10 @@ Route::get('/productCategories/create', [CategoryController::class, 'create'])->
 Route::post('/productCategories', [CategoryController::class, 'store'])->name('productCategories.store');
 Route::get('/productCategories/{CategorName}', [CategoryController::class, 'show'])->name('productCategories.show');
 Route::resource('productCategories', CategoryController::class);
+
+// items module
+Route::get('/items', [ItemController::class, 'index'])->name('items.index');
+Route::get('/items/create', [ItemController::class, 'create'])->name('items.create');
+Route::post('/items', [ItemController::class, 'store'])->name('items.store');
+Route::get('/items/{ItemCode}', [ItemController::class, 'show'])->name('items.show');
+Route::resource('items', ItemController::class);
