@@ -6,6 +6,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\WarehouseController;
 use Illuminate\Support\Facades\Route;
 
 // dashboard
@@ -52,3 +53,10 @@ Route::get('/items/create', [ItemController::class, 'create'])->name('items.crea
 Route::post('/items', [ItemController::class, 'store'])->name('items.store');
 Route::get('/items/{ItemCode}', [ItemController::class, 'show'])->name('items.show');
 Route::resource('items', ItemController::class);
+
+// warehouse module
+Route::get('/warehouses', [WarehouseController::class, 'index'])->name('warehouses.index');
+Route::get('/warehouses/create', [WarehouseController::class, 'create'])->name('warehouses.create');
+Route::post('/warehouses', [WarehouseController::class, 'store'])->name('warehouses.store');
+Route::get('/warehouses/{ItemCode}', [WarehouseController::class, 'show'])->name('warehouses.show');
+Route::resource('warehouses', WarehouseController::class);
