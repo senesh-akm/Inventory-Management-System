@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield("title", "My Demo Login")</title>
 
-    {{-- Link the compiled Bootstrap CSS --}}
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    {{-- Link the compiled CSS and JS using Vite --}}
+    @vite(['resources/js/app.js', 'resources/sass/app.scss'])
 
-    {{-- Additional styles can be added later using @stack --}}
     @stack('styles')
-  </head>
-  <body>
-    {{-- Content section for the Blade template --}}
-    @yield("content")
+</head>
+<body>
+    @yield('content')
 
-    {{-- Link the compiled Bootstrap JS --}}
-    <script src="{{ mix('js/app.js') }}"></script>
-
-    {{-- Additional scripts can be added later using @stack --}}
     @stack('scripts')
-  </body>
+</body>
 </html>
