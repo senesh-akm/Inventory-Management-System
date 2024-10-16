@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdjestmentController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
@@ -58,5 +59,12 @@ Route::resource('items', ItemController::class);
 Route::get('/warehouses', [WarehouseController::class, 'index'])->name('warehouses.index');
 Route::get('/warehouses/create', [WarehouseController::class, 'create'])->name('warehouses.create');
 Route::post('/warehouses', [WarehouseController::class, 'store'])->name('warehouses.store');
-Route::get('/warehouses/{ItemCode}', [WarehouseController::class, 'show'])->name('warehouses.show');
+Route::get('/warehouses/{WarehouseCode}', [WarehouseController::class, 'show'])->name('warehouses.show');
 Route::resource('warehouses', WarehouseController::class);
+
+// adjestments module
+Route::get('/adjestments', [AdjestmentController::class, 'index'])->name('adjestments.index');
+Route::get('/adjestments/create', [AdjestmentController::class, 'create'])->name('adjestments.create');
+Route::post('/adjestments', [AdjestmentController::class, 'store'])->name('adjestments.store');
+Route::get('/adjestments/{ReturnCode}', [AdjestmentController::class, 'show'])->name('adjestments.show');
+Route::resource('adjestments', AdjestmentController::class);

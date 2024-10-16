@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Adjestment extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'ReturnCode';
+
+    public $incrementing = false;
+
+    protected $fillable = [
+        'ReturnCode',
+        'Customer',
+        'ProductCode',
+        'ItemCode',
+        'ItemSerial',
+        'ReturnDate',
+        'Quantity',
+        'Reason',
+        'ReceivePerson'
+    ];
 }
