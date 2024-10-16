@@ -9,8 +9,8 @@
     <script src="https://kit.fontawesome.com/b4bcada09d.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    {{-- Compiled Bootstrap CSS --}}
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    {{-- Link the compiled CSS and JS using Vite --}}
+    @vite(['resources/js/app.js', 'resources/sass/app.scss'])
 
     {{-- Additional styles --}}
     @stack('styles')
@@ -20,9 +20,6 @@
         {{-- @include('partials.left-navbar') --}}
         @yield('content')
     </div>
-
-    {{-- Compiled Bootstrap JS --}}
-    <script src="{{ mix('js/app.js') }}"></script>
 
     {{-- Additional scripts --}}
     @stack('scripts')

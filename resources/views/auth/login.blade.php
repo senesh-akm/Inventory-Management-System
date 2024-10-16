@@ -7,43 +7,50 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-4">
+                    {{-- Success Message --}}
                     @if (session()->has("success"))
                         <div class="alert alert-success">
                             {{ session()->get("success") }}
                         </div>
                     @endif
+                    {{-- Error Message --}}
                     @if (session()->has("error"))
-                        <div class="alert alert-success">
+                        <div class="alert alert-danger">
                             {{ session()->get("error") }}
                         </div>
                     @endif
 
+                    {{-- Login Card --}}
                     <div class="card">
                         <h3 class="card-header text-center">Login</h3>
                         <div class="card-body">
                             <form action="{{ route('login.post') }}" method="POST">
                                 @csrf
-                                <div class="form-group mb-3">
-                                    <input type="text" placeholder="Email" name="email" class="form-control" required autofocus>
+                                {{-- Email Input --}}
+                                <div class="mb-3">
+                                    <input type="email" placeholder="Email" name="email" class="form-control" required autofocus>
                                     @if ($errors->has('email'))
-                                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                                        <div class="text-danger">{{ $errors->first('email') }}</div>
                                     @endif
                                 </div>
-                                <div class="form-group mb-3">
-                                    <input type="password" placeholder="Password" name="password" class="form-control" required autofocus>
+
+                                {{-- Password Input --}}
+                                <div class="mb-3">
+                                    <input type="password" placeholder="Password" name="password" class="form-control" required>
                                     @if ($errors->has('password'))
-                                        <span class="text-danger">{{ $errors->first('password') }}</span>
+                                        <div class="text-danger">{{ $errors->first('password') }}</div>
                                     @endif
                                 </div>
-                                <div class="form-group mb-3">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember"> Remember Me
-                                        </label>
-                                    </div>
+
+                                {{-- Remember Me Checkbox --}}
+                                <div class="form-check mb-3">
+                                    <input type="checkbox" name="remember" class="form-check-input" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">Remember Me</label>
                                 </div>
-                                <div class="d-grid mx-auto">
-                                    <button type="submit" class="btn btn-dark btn-block">Sign In</button>
+
+                                {{-- Submit Button --}}
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-dark">Sign In</button>
                                 </div>
                             </form>
                         </div>
