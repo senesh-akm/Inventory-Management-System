@@ -16,7 +16,7 @@
     @stack('styles')
 </head>
 <body>
-    {{-- @include('partials.top-navbar') --}}
+    @include('partials.top-navbar')
 
     {{-- Content Section --}}
     <main class="py-4">
