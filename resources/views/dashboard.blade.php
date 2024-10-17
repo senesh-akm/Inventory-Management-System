@@ -14,7 +14,7 @@
 
 @section('content')
     <main class="mt-4">
-        <div class="container-fluid">
+        <div class="container">
             <h1>Dashboard</h1>
             <div class="mt-3">
                 <div class="row">
