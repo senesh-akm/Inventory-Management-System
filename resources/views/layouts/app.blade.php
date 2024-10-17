@@ -12,16 +12,23 @@
     {{-- Link the compiled CSS and JS using Vite --}}
     @vite(['resources/js/app.js', 'resources/sass/app.scss'])
 
-    {{-- Additional styles --}}
+    {{-- Additional CSS if required --}}
     @stack('styles')
 </head>
 <body>
-    <div class="container">
-        {{-- @include('partials.left-navbar') --}}
-        @yield('content')
-    </div>
+    @include('partials.top-navbar')
 
-    {{-- Additional scripts --}}
+    {{-- Content Section --}}
+    <main class="py-4">
+        @yield('content')
+    </main>
+
+    {{-- Footer (Optional) --}}
+    <footer class="text-center py-4">
+        <p>&copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.</p>
+    </footer>
+
+    {{-- Additional Scripts if required --}}
     @stack('scripts')
 </body>
 </html>
