@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield("title", "My Demo Login")</title>
+    <title>@yield('title', 'My Demo Login')</title>
 
     {{-- Font Awesome and Chart.js scripts --}}
     <script src="https://kit.fontawesome.com/b4bcada09d.js" crossorigin="anonymous"></script>
@@ -16,12 +16,20 @@
     @stack('styles')
 </head>
 <body>
+    {{-- Include the top navigation bar --}}
     @include('partials.top-navbar')
 
-    {{-- Content Section --}}
-    <main class="py-4">
-        @yield('content')
-    </main>
+    <div class="container-fluid">
+        <div class="row">
+            {{-- Left Sidebar Navigation --}}
+            @include('partials.left-navbar')
+
+            {{-- Main Content Area --}}
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+                @yield('content')
+            </main>
+        </div>
+    </div>
 
     {{-- Footer (Optional) --}}
     <footer class="text-center py-4">
