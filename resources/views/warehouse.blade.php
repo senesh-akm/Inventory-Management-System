@@ -11,18 +11,22 @@
                 @method('PUT')
             @endif
             <button type="submit" class="btn btn-success">{{ isset($warehouse) ? 'Update Warehouse' : 'Create Warehouse' }}</button>
-            <div class="row mt-3">
-                <div class="form-group mt-2">
-                    <label for="WarehouseCode">Warehouse Code</label>
-                    <input type="text" class="form-control" id="WarehouseCode" name="WarehouseCode" value="{{ isset($warehouse) ? $warehouse->WarehouseCode : '' }}" required>
-                </div>
-                <div class="form-group mt-2">
-                    <label for="WarehouseName">Warehouse Name</label>
-                    <input type="text" class="form-control" id="WarehouseName" name="WarehouseName" value="{{ isset($warehouse) ? $warehouse->WarehouseName : '' }}" required>
-                </div>
-                <div class="form-group mt-2">
-                    <label for="Location">Location</label>
-                    <input type="text" class="form-control" id="Location" name="Location" value="{{ isset($warehouse) ? $warehouse->Location : '' }}" required>
+            <div class="card mt-3 mb-3">
+                <div class="card-body">
+                    <div class="row p-3">
+                        <div class="form-group">
+                            <label for="WarehouseCode">Warehouse Code</label>
+                            <input type="text" class="form-control" id="WarehouseCode" name="WarehouseCode" value="{{ isset($warehouse) ? $warehouse->WarehouseCode : '' }}" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="WarehouseName">Warehouse Name</label>
+                            <input type="text" class="form-control" id="WarehouseName" name="WarehouseName" value="{{ isset($warehouse) ? $warehouse->WarehouseName : '' }}" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="Location">Location</label>
+                            <input type="text" class="form-control" id="Location" name="Location" value="{{ isset($warehouse) ? $warehouse->Location : '' }}" required>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>

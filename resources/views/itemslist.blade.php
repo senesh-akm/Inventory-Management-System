@@ -5,9 +5,11 @@
 @section('content')
     <main class="mt-5">
         <h1>Items List</h1>
-
-        <a href="{{ route('items.create') }}" class="btn btn-primary">Add New Item</a>
-
+        <div class="row">
+            <div class="col text-right mt-3">
+                <a href="{{ route('items.create') }}" class="btn btn-primary">+ Add New Item</a>
+            </div>
+        </div>
         <table class="table mt-3">
             <thead>
                 <tr>
@@ -21,7 +23,6 @@
             <tbody>
                 @foreach ($items as $item)
                     <tr>
-                        <!-- Make the ItemCode clickable, linking to the item details page -->
                         <td>
                             <a href="{{ route('items.show', $item->ItemCode) }}" style="text-decoration: none; color: black;">
                                 {{ $item->ItemCode }}

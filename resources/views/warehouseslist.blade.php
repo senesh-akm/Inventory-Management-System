@@ -5,9 +5,11 @@
 @section('content')
 <main class="mt-5">
     <h1>Warehouses List</h1>
-
-    <a href="{{ route('warehouses.create') }}" class="btn btn-primary">Add New Warehouse</a>
-
+    <div class="row">
+        <div class="col text-right mt-3">
+            <a href="{{ route('warehouses.create') }}" class="btn btn-primary">+ Add New Warehouse</a>
+        </div>
+    </div>
     <table class="table mt-3">
         <thead>
             <tr>

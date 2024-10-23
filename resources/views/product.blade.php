@@ -10,7 +10,7 @@
             @if(isset($product))
                 @method('PUT')
             @endif
-            <button type="submit" class="btn btn-primary mt-3">{{ isset($product) ? 'Update' : 'Submit' }}</button>
+            <button type="submit" class="btn btn-success mt-3">{{ isset($product) ? 'Update Product' : 'Add Product' }}</button>
             <div class="card mt-3">
                 <div class="card-body">
                     <div class="row p-3">
@@ -19,7 +19,7 @@
                                 <label for="ProductCode">Product Code</label>
                                 <input type="text" class="form-control" id="ProductCode" name="ProductCode" value="{{ isset($product) ? $product->ProductCode : '' }}" required>
                             </div>
-                            <div class="form-group mt-2">
+                            <div class="form-group mt-3">
                                 <label for="ProductName">Product Name</label>
                                 <input type="text" class="form-control" id="ProductName" name="ProductName" value="{{ isset($product) ? $product->ProductName : '' }}" required>
                             </div>
@@ -36,7 +36,14 @@
                         <div class="col-md-6">
                             <div class="form-group mt-2">
                                 <label for="ProductCategory">Product Category</label>
-                                <input type="text" class="form-control" id="ProductCategory" name="ProductCategory" value="{{ isset($product) ? $product->ProductCategory : '' }}" required>
+                                <select class="form-control" name="ProductCategory" id="ProductCategory" required>
+                                    <option value="">-- Select Product Category --</option>
+                                    @foreach($productCategories as $category)
+                                        <option value="{{ $category->CategorName }}" {{ (isset($product) && $product->ProductCategory == $category->CategorName) ? 'selected' : '' }}>
+                                            {{ $category->CategorName }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-6">
