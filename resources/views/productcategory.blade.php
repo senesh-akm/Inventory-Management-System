@@ -10,16 +10,16 @@
             @if(isset($productCategory))
                 @method('PUT')
             @endif
-            <button type="submit" class="btn btn-primary mt-3">{{ isset($productCategory) ? 'Update' : 'Submit' }}</button>
+            <button type="submit" class="btn btn-primary mt-3">{{ isset($productCategory) ? 'Update Category' : 'Add Category' }}</button>
             <div class="card mt-3">
                 <div class="card-body">
                     <div class="row p-3">
                         <div class="col-md-6">
-                            <div class="form-group mt-2">
+                            <div class="form-group">
                                 <label for="CategorName">Product Category</label>
                                 <input type="text" class="form-control" id="CategorName" name="CategorName" value="{{ isset($productCategory) ? $productCategory->CategorName : '' }}" required>
                             </div>
-                            <div class="form-group mt-2">
+                            <div class="form-group mt-3">
                                 <label for="Description">Description</label>
                                 <input type="text" class="form-control" id="Description" name="Description" value="{{ isset($productCategory) ? $productCategory->Description : '' }}" required>
                             </div>

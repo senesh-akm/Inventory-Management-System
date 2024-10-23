@@ -14,17 +14,25 @@
             <thead>
                 <tr>
                     <th style="width: 20%;">Customer Code</th>
-                    <th style="width: 80%;">Customer Name</th>
+                    <th style="width: 60%;">Customer Name</th>
+                    <th style="width: 20%;">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($customers as $customer)
                     <tr>
-                        <td style="text-decoration: none; color: black;">{{ $customer->CustomerCode }}</td>
                         <td>
                             <a href="{{ route('customers.show', $customer->id) }}" style="text-decoration: none; color: black;">
-                                {{ $customer->Customer }}
+                                {{ $customer->CustomerCode }}
                             </a>
+                        </td>
+                        <td>{{ $customer->CustomerCode }}</td>
+                        <td>
+                            <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" style="display:inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

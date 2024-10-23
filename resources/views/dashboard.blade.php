@@ -9,6 +9,10 @@
             padding: 10px;
             border-radius: 50%;
         }
+        /* Ensure cards have consistent padding on mobile */
+        .card-body {
+            padding: 15px;
+        }
     </style>
 @endpush
 
@@ -19,8 +23,8 @@
             <div class="mt-3">
                 <div class="row">
                     <!-- Sales Orders Card -->
-                    <div class="col-md-3">
-                        <div class="card">
+                    <div class="col-12 col-sm-6 col-md-3 mb-3">
+                        <div class="card h-100">
                             <div class="card-body d-flex align-items-center">
                                 <div class="mr-3 icon-background">
                                     <i class="fas fa-shopping-cart fa-2x"></i>
@@ -33,8 +37,8 @@
                         </div>
                     </div>
                     <!-- Purchase Orders Card -->
-                    <div class="col-md-3">
-                        <div class="card">
+                    <div class="col-12 col-sm-6 col-md-3 mb-3">
+                        <div class="card h-100">
                             <div class="card-body d-flex align-items-center">
                                 <div class="mr-3 icon-background">
                                     <i class="fas fa-truck fa-2x"></i>
@@ -47,8 +51,8 @@
                         </div>
                     </div>
                     <!-- Available Items Card -->
-                    <div class="col-md-3">
-                        <div class="card">
+                    <div class="col-12 col-sm-6 col-md-3 mb-3">
+                        <div class="card h-100">
                             <div class="card-body d-flex align-items-center">
                                 <div class="mr-3 icon-background">
                                     <i class="fas fa-boxes fa-2x"></i>
@@ -61,8 +65,8 @@
                         </div>
                     </div>
                     <!-- Sold Items Card -->
-                    <div class="col-md-3">
-                        <div class="card">
+                    <div class="col-12 col-sm-6 col-md-3 mb-3">
+                        <div class="card h-100">
                             <div class="card-body d-flex align-items-center">
                                 <div class="mr-3 icon-background">
                                     <i class="fas fa-dollar-sign fa-2x"></i>
@@ -75,34 +79,7 @@
                         </div>
                     </div>
                 </div>
-
-                {{-- <canvas id="salesChart"></canvas> --}}
             </div>
         </div>
     </main>
-
-    {{-- @push('scripts')
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var ctx = document.getElementById('salesChart').getContext('2d');
-                var chartData = @json($data);
-
-                var myChart = new Chart(ctx, {
-                    type: 'line',
-                    data: chartData,
-                    options: {
-                        responsive: true,
-                        scales: {
-                            x: {
-                                beginAtZero: true
-                            },
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            });
-        </script>
-    @endpush --}}
 @endsection

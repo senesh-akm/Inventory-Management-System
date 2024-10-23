@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
@@ -18,21 +19,24 @@ class ProductController extends Controller
     public function create()
     {
         $suppliers = Supplier::all();
-        return view('product', compact('suppliers'));
+        $productCategories = Category::all();
+        return view('product', compact('suppliers', 'productCategories'));
     }
 
     public function show($id)
     {
         $product = Product::findOrFail($id);
         $suppliers = Supplier::all();
-        return view('product', compact('product', 'suppliers'));
+        $productCategories = Category::all();
+        return view('product', compact('product', 'suppliers', 'productCategories'));
     }
 
     public function edit($id)
     {
         $product = Product::findOrFail($id);
         $suppliers = Supplier::all();
-        return view('product', compact('product', 'suppliers'));
+        $productCategories = Category::all();
+        return view('product', compact('product', 'suppliers', 'productCategories'));
     }
 
     public function store(Request $request)
@@ -64,5 +68,13 @@ class ProductController extends Controller
         $product->update($request->all());
 
         return redirect()->route('products.index')->with('success', 'Product updated successfully.');
+    }
+
+    public function destroy($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+
+        return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
     }
 }

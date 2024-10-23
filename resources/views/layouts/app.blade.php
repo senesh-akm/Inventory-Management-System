@@ -22,12 +22,10 @@
     <div class="container-fluid">
         <div class="row">
             {{-- Left Sidebar Navigation --}}
-            @include('partials.left-navbar')
+            {{-- @include('partials.left-navbar') --}}
 
             {{-- Main Content Area --}}
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
-                @yield('content')
-            </main>
+            @yield('content')
         </div>
     </div>
 

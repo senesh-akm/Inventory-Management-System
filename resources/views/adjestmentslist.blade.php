@@ -5,9 +5,11 @@
 @section('content')
     <main class="mt-5">
         <h1>Adjestments List</h1>
-
-        <a href="{{ route('adjestments.create') }}" class="btn btn-primary">Add New Adjestment</a>
-
+        <div class="row">
+            <div class="col text-right mt-3">
+                <a href="{{ route('adjestments.create') }}" class="btn btn-primary">+ Add New Adjestment</a>
+            </div>
+        </div>
         <table class="table mt-3">
             <thead>
                 <tr>
