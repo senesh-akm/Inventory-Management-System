@@ -14,6 +14,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
+        "bootstrap-icons": "^1.11.3",
         "popper.js": "^1.16.1"
     }
 }
