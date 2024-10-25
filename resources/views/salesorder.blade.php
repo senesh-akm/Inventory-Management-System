@@ -5,7 +5,7 @@
 @section('content')
     <main class="container mt-5">
         <h1>{{ isset($salesorder) ? 'Edit Sales Orders' : 'Create Sales Orders' }}</h1>
-        <form action="{{ isset($salesorder) ? route('salesorders.update', $salesorder->Sales OrdersCode) : route('salesorders.store') }}" method="POST">
+        <form action="{{ isset($salesorder) ? route('salesorders.update', $salesorder->SalesOrderID) : route('salesorders.store') }}" method="POST">
             @csrf
             @if (isset($salesorder))
                 @method('PUT')
@@ -32,15 +32,11 @@
                         </div>
                         <div class="form-group mt-3">
                             <label for="OrderDate">Order Date</label>
-                            <input type="text" class="form-control" id="OrderDate" name="OrderDate" value="{{ isset($salesorder) ? $salesorder->OrderDate : '' }}" required>
-                        </div>
-                        <div class="form-group mt-3">
-                            <label for="OrderDate">Order Date</label>
-                            <input type="text" class="form-control" id="OrderDate" name="OrderDate" value="{{ isset($salesorder) ? $salesorder->OrderDate : '' }}" required>
+                            <input type="date" class="form-control" id="OrderDate" name="OrderDate" value="{{ isset($salesorder) ? $salesorder->OrderDate : '' }}" required>
                         </div>
                         <div class="form-group mt-3">
                             <label for="Qty">Quantity</label>
-                            <input type="text" class="form-control" id="Qty" name="Qty" value="{{ isset($salesorder) ? $salesorder->Qty : '' }}" required>
+                            <input type="numberic" class="form-control" id="Qty" name="Qty" value="{{ isset($salesorder) ? $salesorder->Qty : '' }}" required>
                         </div>
                         <div class="form-group mt-3">
                             <label for="UnitPrice">Unit Price</label>
