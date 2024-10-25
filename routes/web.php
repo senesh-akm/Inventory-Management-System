@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PurchaseOrderController;
 use App\Http\Controllers\SalesOrderController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\WarehouseController;
@@ -86,3 +87,10 @@ Route::get('/salesorders/create', [SalesOrderController::class, 'create'])->name
 Route::post('/salesorders', [SalesOrderController::class, 'store'])->name('salesorders.store');
 Route::get('/salesorders/{SalesOrderID}', [SalesOrderController::class, 'show'])->name('salesorders.show');
 Route::resource('salesorders', SalesOrderController::class);
+
+// purchase orders module
+Route::get('/purchaseorders', [PurchaseOrderController::class, 'index'])->name('purchaseorders.index');
+Route::get('/purchaseorders/create', [PurchaseOrderController::class, 'create'])->name('purchaseorders.create');
+Route::post('/purchaseorders', [PurchaseOrderController::class, 'store'])->name('purchaseorders.store');
+Route::get('/purchaseorders/{PurchaseOrderID}', [PurchaseOrderController::class, 'show'])->name('purchaseorders.show');
+Route::resource('purchaseorders', PurchaseOrderController::class);

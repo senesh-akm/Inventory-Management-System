@@ -7,7 +7,7 @@
     <h1>Sales Orders List</h1>
     <div class="row">
         <div class="col text-right mt-3">
-            <a href="{{ route('salesorders.create') }}" class="btn btn-primary">+ Add New Warehouse</a>
+            <a href="{{ route('salesorders.create') }}" class="btn btn-primary">+ Add New Sales Order</a>
         </div>
     </div>
     <table class="table mt-3">
