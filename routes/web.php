@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SalesOrderController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\WarehouseController;
 use Illuminate\Support\Facades\Route;
@@ -78,3 +79,10 @@ Route::get('/transactions/create', [AdjestmentController::class, 'create'])->nam
 Route::post('/transactions', [AdjestmentController::class, 'store'])->name('transactions.store');
 Route::get('/transactions/{TransactionCode}', [AdjestmentController::class, 'show'])->name('transactions.show');
 Route::resource('transactions', AdjestmentController::class);
+
+// sales orders module
+Route::get('/salesorders', [SalesOrderController::class, 'index'])->name('salesorders.index');
+Route::get('/salesorders/create', [SalesOrderController::class, 'create'])->name('salesorders.create');
+Route::post('/salesorders', [SalesOrderController::class, 'store'])->name('salesorders.store');
+Route::get('/salesorders/{SalesOrderID}', [SalesOrderController::class, 'show'])->name('salesorders.show');
+Route::resource('salesorders', SalesOrderController::class);
