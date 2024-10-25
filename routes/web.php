@@ -71,3 +71,10 @@ Route::get('/adjestments/create', [AdjestmentController::class, 'create'])->name
 Route::post('/adjestments', [AdjestmentController::class, 'store'])->name('adjestments.store');
 Route::get('/adjestments/{ReturnCode}', [AdjestmentController::class, 'show'])->name('adjestments.show');
 Route::resource('adjestments', AdjestmentController::class);
+
+// transactions module
+Route::get('/transactions', [AdjestmentController::class, 'index'])->name('transactions.index');
+Route::get('/transactions/create', [AdjestmentController::class, 'create'])->name('transactions.create');
+Route::post('/transactions', [AdjestmentController::class, 'store'])->name('transactions.store');
+Route::get('/transactions/{TransactionCode}', [AdjestmentController::class, 'show'])->name('transactions.show');
+Route::resource('transactions', AdjestmentController::class);
