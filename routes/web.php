@@ -8,6 +8,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PurchaseOrderController;
 use App\Http\Controllers\SalesOrderController;
+use App\Http\Controllers\StockLocationController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\WarehouseController;
 use Illuminate\Support\Facades\Route;
@@ -94,3 +95,10 @@ Route::get('/purchaseorders/create', [PurchaseOrderController::class, 'create'])
 Route::post('/purchaseorders', [PurchaseOrderController::class, 'store'])->name('purchaseorders.store');
 Route::get('/purchaseorders/{PurchaseOrderID}', [PurchaseOrderController::class, 'show'])->name('purchaseorders.show');
 Route::resource('purchaseorders', PurchaseOrderController::class);
+
+// stock location module
+Route::get('/stocklocations', [StockLocationController::class, 'index'])->name('stocklocations.index');
+Route::get('/stocklocations/create', [StockLocationController::class, 'create'])->name('stocklocations.create');
+Route::post('/stocklocations', [StockLocationController::class, 'store'])->name('stocklocations.store');
+Route::get('/stocklocations/{WarehouseCode}', [StockLocationController::class, 'show'])->name('stocklocations.show');
+Route::resource('stocklocations', StockLocationController::class);
