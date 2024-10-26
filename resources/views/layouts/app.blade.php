@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'My Demo Login')</title>
 
-    {{-- Font Awesome and Chart.js scripts --}}
-    <script src="https://kit.fontawesome.com/b4bcada09d.js" crossorigin="anonymous"></script>
+    {{-- Chart.js script --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     {{-- Link the Bootstrap Icons CDN --}}
@@ -24,11 +23,19 @@
 
     <div class="container-fluid">
         <div class="row">
-            {{-- Left Sidebar Navigation --}}
-            {{-- @include('partials.left-navbar') --}}
+            {{-- Include the sidebar --}}
+            <div class="col-md-4 col-lg-2 d-none d-md-block">
+                @include('partials.side-navbar')
+                <!-- Toggle Button -->
+                <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
 
             {{-- Main Content Area --}}
-            @yield('content')
+            <main class="col-md-8 ms-sm-auto col-lg-10 px-md-4">
+                @yield('content')
+            </main>
         </div>
     </div>
 
