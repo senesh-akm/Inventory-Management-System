@@ -15,28 +15,41 @@
     color: white !important;
 }
 
-.sidebar {
-    height: 100vh;
+#sidebarMenu {
     width: 250px;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+#sidebarMenu .nav-link {
+    font-size: 1.1rem;
+    color: rgb(65, 63, 63) !important;
+}
+
+#sidebarMenu .nav-link i {
+    font-size: 1.3rem;
+    color: rgb(65, 63, 63) !important;
+}
+
+#sidebarMenu .nav-link.active {
+    background-color: orange !important;
+    color: white !important;
+}
+
+#sidebarMenu .nav-link.active i {
+    color: white !important;
+}
+
+#sidebarMenu .nav-link:hover {
+    background-color: orange;
+    color: white;
+}
+
+#sidebarMenu.show {
     position: fixed;
-}
-
-.content {
-    margin-left: 250px;
-    padding: 20px;
-}
-
-@media (max-width: 768px) {
-    .sidebar .navbar-collapse {
-        background-color: transparent !important;
-        box-shadow: none !important;
-    }
-
-    .sidebar .collapse {
-        display: none;
-    }
-
-    .sidebar .collapse.show {
-        display: block;
-    }
+    z-index: 1045;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
 }
