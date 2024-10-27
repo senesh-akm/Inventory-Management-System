@@ -53,3 +53,23 @@
     left: 0;
     overflow-y: auto;
 }
+
+.icon-large {
+    font-size: 2rem;
+    align-self: center;
+}
+
+.icon-background {
+    background-color: rgba(255, 166, 0, 0.959);
+    color: white;
+    width: 65px;
+    height: 65px;
+    border-radius: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.margin-right {
+    margin-right: 10px;
+}
