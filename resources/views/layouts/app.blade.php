@@ -29,7 +29,7 @@
             </div>
 
             {{-- Main Content Area --}}
-            <main class="col-md-8 ms-sm-auto col-lg-10 px-md-4">
+            <main class="col-md-8 ms-sm-auto col-lg-10 px-md-4 mt-5">
                 <!-- Sidebar Toggle Button (Visible only on small screens) -->
                 <button class="btn btn-outline-dark d-md-none my-2" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="bi bi-menu-button-wide"></i>
