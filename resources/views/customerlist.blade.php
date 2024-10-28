@@ -26,7 +26,7 @@
                                 {{ $customer->CustomerCode }}
                             </a>
                         </td>
-                        <td>{{ $customer->CustomerCode }}</td>
+                        <td>{{ $customer->Customer }}</td>
                         <td>
                             <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" style="display:inline-block;">
                                 @csrf
