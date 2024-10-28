@@ -21,9 +21,9 @@
                                 <div class="invalid-feedback">Customer Code is required and should be a maximum of 5 letters.</div>
                             </div>
                             <div class="form-group mt-3">
-                                <label for="Customer">Customer</label>
+                                <label for="Customer">Company Name</label>
                                 <input type="text" class="form-control" id="Customer" name="Customer" value="{{ isset($customer) ? $customer->Customer : '' }}" required placeholder="e.g.: Hayleys Group">
-                                <div class="invalid-feedback">Customer name is required.</div>
+                                <div class="invalid-feedback">Company name is required.</div>
                             </div>
                         </div>
                         <div class="col-md-6">
