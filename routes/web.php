@@ -10,6 +10,7 @@ use App\Http\Controllers\PurchaseOrderController;
 use App\Http\Controllers\SalesOrderController;
 use App\Http\Controllers\StockLocationController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\WarehouseController;
 use Illuminate\Support\Facades\Route;
 
@@ -76,11 +77,11 @@ Route::get('/adjestments/{ReturnCode}', [AdjestmentController::class, 'show'])->
 Route::resource('adjestments', AdjestmentController::class);
 
 // transactions module
-Route::get('/transactions', [AdjestmentController::class, 'index'])->name('transactions.index');
-Route::get('/transactions/create', [AdjestmentController::class, 'create'])->name('transactions.create');
-Route::post('/transactions', [AdjestmentController::class, 'store'])->name('transactions.store');
-Route::get('/transactions/{TransactionCode}', [AdjestmentController::class, 'show'])->name('transactions.show');
-Route::resource('transactions', AdjestmentController::class);
+Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
+Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');
+Route::post('/transactions', [TransactionController::class, 'store'])->name('transactions.store');
+Route::get('/transactions/{TransactionCode}', [TransactionController::class, 'show'])->name('transactions.show');
+Route::resource('transactions', TransactionController::class);
 
 // sales orders module
 Route::get('/salesorders', [SalesOrderController::class, 'index'])->name('salesorders.index');

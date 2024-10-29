@@ -30,7 +30,11 @@
                     <td>{{ $transaction->ItemCode }}</td>
                     <td>{{ $transaction->Date }}</td>
                     <td>
-                        <a href="{{ route('transactions.edit', $transaction->TransactionCode) }}" class="btn btn-warning">Edit</a>
+                        <form action="{{ route('transactions.destroy', $transaction->TransactionCode) }}" method="POST" style="display:inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
