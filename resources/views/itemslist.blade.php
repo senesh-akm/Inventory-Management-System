@@ -16,7 +16,7 @@
                     <th style="width: 20%;">Item Code</th>
                     <th style="width: 30%;">Item Name</th>
                     <th style="width: 20%;">Item Serial</th>
-                    <th style="width: 20%;">Unit Price</th>
+                    <th style="width: 20%;">Unit Price (LKR)</th>
                     <th style="width: 10%;">Actions</th>
                 </tr>
             </thead>

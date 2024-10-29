@@ -30,8 +30,6 @@
                         <td>{{ $product->ProductName }}</td>
                         <td>{{ $product->ProductCategory }}</td>
                         <td>
-                            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning">Edit</a>
-
                             <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')

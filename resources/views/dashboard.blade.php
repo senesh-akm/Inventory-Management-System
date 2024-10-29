@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <main class="mt-4">
+    <main class="mt-5">
         <div class="container">
             <h1>Dashboard</h1>
             <div class="mt-3">

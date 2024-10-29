@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -18,13 +19,15 @@ class ItemController extends Controller
     public function show($ItemCode)
     {
         $item = Item::findOrFail($ItemCode);
-        return view('item', compact('item'));
+        $products = Product::all();
+        return view('item', compact('item', 'products'));
     }
 
     // Show form to create a new item
     public function create()
     {
-        return view('item');
+        $products = Product::all();
+        return view('item', compact('products'));
     }
 
     // Store a newly created item in the database

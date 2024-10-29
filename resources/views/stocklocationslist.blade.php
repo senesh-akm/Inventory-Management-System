@@ -28,8 +28,6 @@
                     </td>
                     <td>{{ $stocklocation->ProductCode }}</td>
                     <td>
-                        <a href="{{ route('stocklocations.edit', $stocklocation->WarehouseCode) }}" class="btn btn-warning">Edit</a>
-
                         <form action="{{ route('stocklocations.destroy', $stocklocation->WarehouseCode) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')

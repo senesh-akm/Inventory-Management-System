@@ -17,7 +17,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="CustomerCode">Customer Code</label>
-                                <input type="text" class="form-control" id="CustomerCode" name="CustomerCode" value="{{ isset($customer) ? $customer->CustomerCode : '' }}" maxlength="5" required oninput="this.value = this.value.toUpperCase()" placeholder="e.g.: HYLGR">
+                                <input type="text" class="form-control" id="CustomerCode" name="CustomerCode" value="{{ isset($customer) ? $customer->CustomerCode : '' }}" maxlength="5" required oninput="this.value = this.value.toUpperCase()" placeholder="e.g.: HYLGR" {{ isset($customer) ? 'readonly' : '' }}>
                                 <div class="invalid-feedback">Customer Code is required and should be a maximum of 5 letters.</div>
                             </div>
                             <div class="form-group mt-3">
@@ -35,7 +35,7 @@
                                     <option value="Ms." {{ (isset($customer) && $customer->ContactTitle == 'Ms') ? 'selected' : '' }}>Ms.</option>
                                     <option value="Mrs." {{ (isset($customer) && $customer->ContactTitle == 'Mrs') ? 'selected' : '' }}>Mrs.</option>
                                 </select>
-                                <div class="invalid-feedback">Contact Title is required.</div>
+                                <div class="invalid-feedback">Contact title is required.</div>
                             </div>
                             <div class="form-group mt-3">
                                 <label for="ContactName">Contact Name</label>
@@ -88,24 +88,4 @@
             </div>
         </form>
     </main>
-
-    <script>
-        // Form validation on submission
-        (function() {
-            'use strict';
-            window.addEventListener('load', function() {
-                // Fetch all the forms
-                var forms = document.getElementsByTagName('form');
-                Array.prototype.filter.call(forms, function(form) {
-                    form.addEventListener('submit', function(event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-            }, false);
-        })();
-    </script>
 @endsection

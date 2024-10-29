@@ -19,7 +19,7 @@
                 @endif
 
                 {{-- Login Card --}}
-                <div class="card">
+                <div class="card mt-4">
                     <h2 class="card-header text-center">{{ __('Login') }}</h2>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">

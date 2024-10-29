@@ -31,18 +31,10 @@ class ProductController extends Controller
         return view('product', compact('product', 'suppliers', 'productCategories'));
     }
 
-    public function edit($id)
-    {
-        $product = Product::findOrFail($id);
-        $suppliers = Supplier::all();
-        $productCategories = Category::all();
-        return view('product', compact('product', 'suppliers', 'productCategories'));
-    }
-
     public function store(Request $request)
     {
         $request->validate([
-            'ProductCode' => 'required|string|max:5',
+            'ProductCode' => 'required|string|max:50',
             'ProductName' => 'required|string|max:255',
             'Description' => 'required|string|max:255',
             'ProductCategory' => 'required|string|max:255',
@@ -57,7 +49,7 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'ProductCode' => 'required|string|max:255',
+            'ProductCode' => 'required|string|max:50',
             'ProductName' => 'required|string|max:255',
             'Description' => 'required|string|max:255',
             'ProductCategory' => 'required|string|max:255',
