@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use App\Models\Product;
+use App\Models\StockLocation;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
@@ -10,28 +12,25 @@ class TransactionController extends Controller
 {
     public function index()
     {
-        $adjestments = Transaction::all();
+        $transactions = Transaction::all();
         return view('transactionslist', compact('transactions'));
     }
 
     public function create()
     {
         $products = Product::all();
-        return view('transaction', compact('products'));
+        $stocklocations = StockLocation::all();
+        $items = Item::all();
+        return view('transaction', compact('products', 'stocklocations', 'items'));
     }
 
     public function show($TransactionCode)
     {
-        $transaction = Transaction::findOrFail($TransactionCode);
+        $transactions = Transaction::findOrFail($TransactionCode);
         $products = Product::all();
-        return view('transaction', compact('transaction', 'products'));
-    }
-
-    public function edit($TransactionCode)
-    {
-        $transaction = Transaction::findOrFail($TransactionCode);
-        $products = Product::all();
-        return view('transaction', compact('transaction', 'products'));
+        $stocklocations = StockLocation::all();
+        $items = Item::all();
+        return view('transaction', compact('transaction', 'products', 'stocklocations', 'items'));
     }
 
     public function store(Request $request)
@@ -61,16 +60,16 @@ class TransactionController extends Controller
             'StockLocation' => 'required|string',
         ]);
 
-        $transaction = Transaction::findOrFail($TransactionCode);
-        $transaction->update($request->all());
+        $transactions = Transaction::findOrFail($TransactionCode);
+        $transactions->update($request->all());
 
         return redirect()->route('transactions.index')->with('success', 'Transaction updated successfully');
     }
 
     public function destroy($TransactionCode)
     {
-        $transaction = Transaction::find($TransactionCode);
-        $transaction->delete();
+        $transactions = Transaction::find($TransactionCode);
+        $transactions->delete();
 
         return redirect()->route('transactions.index')->with('success', 'Transaction deleted successfully');
     }
