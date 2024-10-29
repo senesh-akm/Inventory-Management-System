@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\StockLocation;
 use App\Models\Warehouse;
 use Illuminate\Http\Request;
 
@@ -15,13 +16,14 @@ class WarehouseController extends Controller
 
     public function create()
     {
-        return view('warehouse');
+        $stocklocations = StockLocation::all();
+        return view('warehouse', compact('stocklocations'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'WarehouseCode' => 'required|unique:warehouses|max:255',
+            'WarehouseCode' => 'required|unique:warehouses|max:25',
             'WarehouseName' => 'required|max:255',
             'Location' => 'required|max:255',
         ]);
@@ -34,13 +36,8 @@ class WarehouseController extends Controller
     public function show($WarehouseCode)
     {
         $warehouse = Warehouse::find($WarehouseCode);
-        return view('warehouse', compact('warehouse'));
-    }
-
-    public function edit($WarehouseCode)
-    {
-        $warehouse = Warehouse::find($WarehouseCode);
-        return view('warehouse', compact('warehouse'));
+        $stocklocations = StockLocation::all();
+        return view('warehouse', compact('warehouse', 'stocklocations'));
     }
 
     public function update(Request $request, $WarehouseCode)

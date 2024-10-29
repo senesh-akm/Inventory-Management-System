@@ -18,6 +18,11 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link d-flex align-items-center" href="{{ route('suppliers.index') }}" onclick="setActive(this)">
+                    <i class="bi bi-truck me-2"></i> Supplier
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link d-flex align-items-center" href="{{ route('items.index') }}" onclick="setActive(this)">
                     <i class="bi bi-box me-2"></i> Item
                 </a>
@@ -30,13 +35,13 @@
                 <div class="collapse" id="productsSubMenu">
                     <ul class="nav flex-column ms-3">
                         <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center" href="{{ route('products.index') }}" onclick="setActive(this)">
-                                <i class="bi bi-box me-2" style="font-size: 1rem;"></i> Product
+                            <a class="nav-link d-flex align-items-center" href="{{ route('productCategories.index') }}" onclick="setActive(this)">
+                                <i class="bi bi-tags me-2" style="font-size: 1rem;"></i> Product Category
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center" href="{{ route('productCategories.index') }}" onclick="setActive(this)">
-                                <i class="bi bi-tags me-2" style="font-size: 1rem;"></i> Product Category
+                            <a class="nav-link d-flex align-items-center" href="{{ route('products.index') }}" onclick="setActive(this)">
+                                <i class="bi bi-box me-2" style="font-size: 1rem;"></i> Product
                             </a>
                         </li>
                     </ul>

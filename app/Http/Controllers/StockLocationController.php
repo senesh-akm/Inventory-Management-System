@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\StockLocation;
 use Illuminate\Http\Request;
 
@@ -15,13 +16,15 @@ class StockLocationController extends Controller
 
     public function create()
     {
-        return view('stocklocation');
+        $products = Product::all();
+        return view('stocklocation', compact('products'));
     }
 
     public function show($WarehouseCode)
     {
         $stocklocations = StockLocation::findOrFail($WarehouseCode);
-        return view('stocklocation', compact('stocklocation'));
+        $products = Product::all();
+        return view('stocklocation', compact('stocklocation', 'products'));
     }
 
     public function store(Request $request)
