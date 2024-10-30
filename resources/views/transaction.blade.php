@@ -22,7 +22,7 @@
                         <div class="form-group mt-3">
                             <label for="ItemCode">Item Code</label>
                             <select class="form-control" name="ItemCode" id="ItemCode" required>
-                                <option value="">-- Select Product Category --</option>
+                                <option value="">-- Select Item Code --</option>
                                 @foreach($items as $item)
                                     <option value="{{ $item->ItemCode }}" {{ (isset($transaction) && $transaction->ItemCode == $item->ItemCode) ? 'selected' : '' }}>
                                         {{ $item->ItemCode }}
@@ -47,7 +47,7 @@
                         <div class="form-group mt-3">
                             <label for="StockLocation">Stock Location</label>
                             <select class="form-control" name="StockLocation" id="StockLocation" required>
-                                <option value="">-- Select Product Category --</option>
+                                <option value="">-- Select Stock Location --</option>
                                 @foreach($stocklocations as $stocklocation)
                                     <option value="{{ $stocklocation->WarehouseCode }}" {{ (isset($transaction) && $transaction->StockLocation == $stocklocation->WarehouseCode) ? 'selected' : '' }}>
                                         {{ $stocklocation->WarehouseCode }}

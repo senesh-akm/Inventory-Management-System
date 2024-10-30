@@ -15,11 +15,10 @@
                 <tr>
                     <th style="width: 15%;">Return Code</th>
                     <th style="width: 15%;">Customer</th>
-                    <th style="width: 15%;">Product Code</th>
-                    <th style="width: 10%;">Item Code</th>
-                    <th style="width: 10%;">Quantity</th>
-                    <th style="width: 10%;">Return Date</th>
-                    <th style="width: 25%;">Actions</th>
+                    <th style="width: 20%;">Product Code</th>
+                    <th style="width: 25%;">Item Code</th>
+                    <th style="width: 15%;">Return Date</th>
+                    <th style="width: 10%;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,11 +32,8 @@
                         <td>{{ $adjestment->Customer }}</td>
                         <td>{{ $adjestment->ProductCode }}</td>
                         <td>{{ $adjestment->ItemCode }}</td>
-                        <td>{{ $adjestment->Quantity }}</td>
                         <td>{{ $adjestment->ReturnDate }}</td>
                         <td>
-                            <a href="{{ route('adjestments.edit', $adjestment->ReturnCode) }}" class="btn btn-warning">Edit</a>
-
                             <form action="{{ route('adjestments.destroy', $adjestment->ReturnCode) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
