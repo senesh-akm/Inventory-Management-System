@@ -9,6 +9,10 @@ class Transaction extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'TransactionCode'; // Set your primary key here
+    public $incrementing = false;
+    protected $keyType = 'string';
+
     protected $fillable = [
         'TransactionCode',
         'ItemCode',

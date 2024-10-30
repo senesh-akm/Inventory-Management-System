@@ -22,7 +22,7 @@
                         <div class="form-group mt-3">
                             <label for="ProductCode">Product Code</label>
                             <select class="form-control" name="ProductCode" id="ProductCode" required>
-                                <option value="">-- Select Product Category --</option>
+                                <option value="">-- Select Product --</option>
                                 @foreach($products as $product)
                                     <option value="{{ $product->ProductCode }}" {{ (isset($stocklocation) && $stocklocation->ProductCode == $product->ProductCode) ? 'selected' : '' }}>
                                         {{ $product->ProductCode }}

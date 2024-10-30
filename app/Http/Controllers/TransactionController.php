@@ -26,7 +26,7 @@ class TransactionController extends Controller
 
     public function show($TransactionCode)
     {
-        $transactions = Transaction::findOrFail($TransactionCode);
+        $transaction = Transaction::findOrFail($TransactionCode);
         $products = Product::all();
         $stocklocations = StockLocation::all();
         $items = Item::all();
