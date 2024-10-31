@@ -88,6 +88,7 @@ Route::get('/salesorders', [SalesOrderController::class, 'index'])->name('saleso
 Route::get('/salesorders/create', [SalesOrderController::class, 'create'])->name('salesorders.create');
 Route::post('/salesorders', [SalesOrderController::class, 'store'])->name('salesorders.store');
 Route::get('/salesorders/{SalesOrderID}', [SalesOrderController::class, 'show'])->name('salesorders.show');
+Route::get('/items/{ItemCode}', [SalesOrderController::class, 'getItemDetails']);
 Route::resource('salesorders', SalesOrderController::class);
 
 // purchase orders module

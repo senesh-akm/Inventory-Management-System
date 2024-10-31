@@ -32,8 +32,6 @@
                     <td>{{ $salesorder->ProductCode }}</td>
                     <td>{{ $salesorder->OrderDate }}</td>
                     <td>
-                        <a href="{{ route('salesorders.edit', $salesorder->SalesOrderID) }}" class="btn btn-warning">Edit</a>
-
                         <form action="{{ route('salesorders.destroy', $salesorder->SalesOrderID) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
