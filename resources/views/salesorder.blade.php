@@ -10,7 +10,7 @@
             @if (isset($salesorder))
                 @method('PUT')
             @endif
-            <button type="submit" class="btn btn-success">{{ isset($salesorder) ? 'Update Sales Orders' : 'Create Sales Orders' }}</button>
+            <button type="submit" class="btn btn-success mt-3">{{ isset($salesorder) ? 'Update Sales Orders' : 'Create Sales Orders' }}</button>
             <div class="card mt-3 mb-3">
                 <div class="card-body">
                     <div class="row p-3">

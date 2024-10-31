@@ -96,6 +96,7 @@ Route::get('/purchaseorders', [PurchaseOrderController::class, 'index'])->name('
 Route::get('/purchaseorders/create', [PurchaseOrderController::class, 'create'])->name('purchaseorders.create');
 Route::post('/purchaseorders', [PurchaseOrderController::class, 'store'])->name('purchaseorders.store');
 Route::get('/purchaseorders/{PurchaseOrderID}', [PurchaseOrderController::class, 'show'])->name('purchaseorders.show');
+Route::get('/items/{ItemCode}', [PurchaseOrderController::class, 'getItemDetails']);
 Route::resource('purchaseorders', PurchaseOrderController::class);
 
 // stock location module
