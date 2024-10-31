@@ -9,6 +9,10 @@ class SalesOrder extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'SalesOrderID';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
     protected $fillable = [
         'SalesOrderID',
         'CustomerCode',

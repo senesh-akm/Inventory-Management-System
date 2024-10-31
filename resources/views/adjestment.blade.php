@@ -69,15 +69,18 @@
                         </div>
                         <div class="form-group mt-3">
                             <label for="Quantity">Quantity</label>
-                            <input type="number" class="form-control" id="Quantity" name="Quantity" value="{{ isset($adjestment) ? $adjestment->Quantity : '' }}" required>
+                            <input type="number" class="form-control" id="Quantity" name="Quantity" value="{{ isset($adjestment) ? $adjestment->Quantity : '' }}" required placeholder="e.g.: 10">
+                            <div class="invalid-feedback">Quantity is required.</div>
                         </div>
                         <div class="form-group mt-3">
                             <label for="Reason">Reason</label>
-                            <input type="text" class="form-control" id="Reason" name="Reason" value="{{ isset($adjestment) ? $adjestment->Reason : '' }}" required>
+                            <input type="text" class="form-control" id="Reason" name="Reason" value="{{ isset($adjestment) ? $adjestment->Reason : '' }}" required placeholder="e.g.: Damaged">
+                            <div class="invalid-feedback">Reason is required.</div>
                         </div>
                         <div class="form-group mt-3">
-                            <label for="ReceivePerson">Receive Person</label>
-                            <input type="text" class="form-control" id="ReceivePerson" name="ReceivePerson" value="{{ isset($adjestment) ? $adjestment->ReceivePerson : '' }}" required>
+                            <label for="ReceivePerson">Receive by</label>
+                            <input type="text" class="form-control" id="ReceivePerson" name="ReceivePerson" value="{{ isset($adjestment) ? $adjestment->ReceivePerson : '' }}" required placeholder="e.g.: Mr. Nipuna">
+                            <div class="invalid-feedback">Received person is required.</div>
                         </div>
                     </div>
                 </div>
