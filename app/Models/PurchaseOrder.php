@@ -9,6 +9,10 @@ class PurchaseOrder extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'PurchaseOrderID';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
     protected $fillable = [
         'PurchaseOrderID',
         'SupplierCode',

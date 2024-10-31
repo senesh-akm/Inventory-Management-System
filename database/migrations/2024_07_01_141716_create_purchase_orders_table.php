@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('ItemCode');
             $table->date('OrderDate');
             $table->integer('Qty');
-            $table->decimal('UnitPrice', 8, 2);
-            $table->decimal('TotalAmount', 10, 2);
+            $table->string('UnitPrice');
+            $table->string('TotalAmount');
             $table->timestamps();
         });
     }
