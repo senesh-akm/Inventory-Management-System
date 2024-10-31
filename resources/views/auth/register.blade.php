@@ -20,7 +20,7 @@
 
             {{-- Registration Form --}}
             <div class="card">
-                <h2 class="card-header text-center">{{ __('Register') }}</h2>
+                <h2 class="card-header text-center">{{ __('Add Employee') }}</h2>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register.post') }}">
                         @csrf
