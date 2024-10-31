@@ -17,17 +17,15 @@ class AuthController extends Controller
     public function loginPost(Request $request)
     {
         $request->validate([
-            "email" => 'required|email',
-            "password" => 'required|min:6'
+            'login' => 'required',
+            'password' => 'required|min:6',
         ]);
 
-        $credentials = $request->only("email", "password");
+        $credentials = [
+            filter_var($request->login, FILTER_VALIDATE_EMAIL) ? 'email' : 'empnumber' => $request->login, 'password' => $request->password
+        ];
 
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended(route("home"));
-        }
-
-        return redirect(route("login"))->with("error", "Login Failed");
+        return Auth::attempt($credentials, $request->remember) ? redirect()->intended(route('home')) : back()->withErrors(['login' => 'The provided credentials do not match our records.']);
     }
 
     public function register()
@@ -40,7 +38,7 @@ class AuthController extends Controller
         $request->validate([
             'empnumber' => 'required|string|unique:users',
             'empname' => 'required|string|max:255',
-            'email' => 'required|string|unique:users',
+            'email' => 'required|string|email|unique:users',
             'role' => 'required|string',
             'password' => 'required|string|min:6|confirmed',
         ]);

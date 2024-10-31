@@ -22,15 +22,15 @@
                 <div class="card mt-4">
                     <h2 class="card-header text-center">{{ __('Login') }}</h2>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('login.post') }}">
                             @csrf
 
-                            {{-- Email Input --}}
+                            {{-- Login Input (Email or Employee Number) --}}
                             <div class="form-group mb-3">
-                                <label for="email" class="col-form-label">{{ __('Email Address') }}</label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <label for="login" class="col-form-label">{{ __('User') }}</label>
+                                <input id="login" type="text" class="form-control @error('login') is-invalid @enderror" name="login" value="{{ old('login') }}" placeholder="Email or Employee Number" required autofocus>
 
-                                @error('email')
+                                @error('login')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -40,7 +40,7 @@
                             {{-- Password Input --}}
                             <div class="form-group mb-3">
                                 <label for="password" class="col-form-label">{{ __('Password') }}</label>
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Your password" required>
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
