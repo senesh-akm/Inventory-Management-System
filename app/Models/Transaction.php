@@ -9,16 +9,26 @@ class Transaction extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'TransactionCode'; // Set your primary key here
+    protected $primaryKey = 'TransactionCode';
     public $incrementing = false;
     protected $keyType = 'string';
 
     protected $fillable = [
         'TransactionCode',
         'ItemCode',
+        'ItemSerial',
         'Date',
-        'Qty',
         'TransactionType',
         'StockLocation',
     ];
+
+    public function item()
+    {
+        return $this->belongsTo(Item::class);
+    }
+
+    public function stockLocation()
+    {
+        return $this->belongsTo(StockLocation::class);
+    }
 }

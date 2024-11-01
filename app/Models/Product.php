@@ -16,4 +16,14 @@ class Product extends Model
         'ProductCategory',
         'SupplierName'
     ];
+
+    public function productCategory()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
+    }
 }

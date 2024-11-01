@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('stock_locations', function (Blueprint $table) {
             $table->string('WarehouseCode')->primary();
             $table->string('ProductCode');
-            $table->string('Qty');
             $table->timestamps();
         });
     }

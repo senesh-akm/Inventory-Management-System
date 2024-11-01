@@ -11,18 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sales_orders', function (Blueprint $table) {
-            $table->string('SalesOrderID')->primary();
-            $table->string('Status');
-            $table->string('CustomerCode');
-            $table->string('ProductCode');
+        Schema::create('sellings', function (Blueprint $table) {
+            $table->string('SellCode')->primary()->unique();
             $table->string('ItemCode');
-            $table->date('OrderDate');
-            $table->integer('Qty');
+            $table->string('ProductCode');
+            $table->string('SupplierCode');
+            $table->string('CustomerCode');
             $table->string('UnitPrice');
-            $table->boolean('Is_Tax');
             $table->string('Tax');
             $table->string('TotalAmount');
+            $table->string('Status');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sales_orders');
+        Schema::dropIfExists('sellings');
     }
 };

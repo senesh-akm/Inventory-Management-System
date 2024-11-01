@@ -12,6 +12,15 @@ class StockLocation extends Model
     protected $fillable = [
         'WarehouseCode',
         'ProductCode',
-        'Qty',
     ];
+
+    public function stockLocation()
+    {
+        return $this->belongsTo(StockLocation::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

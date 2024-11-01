@@ -5,28 +5,30 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model
+class Selling extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'ItemCode';
+    protected $primaryKey = 'SellCode';
     public $incrementing = false;
     protected $keyType = 'string';
 
     protected $fillable = [
+        'SellCode',
         'ItemCode',
-        'ItemPicture',
-        'WarrantyDate',
-        'ItemName',
-        'ItemSerial',
         'ProductCode',
-        'Description',
-        'ReceiivedSupplier',
+        'SupplierCode',
+        'CustomerCode',
         'UnitPrice',
-        'TaxStatus',
         'Tax',
-        'status',
+        'TotalAmount',
+        'Status',
     ];
+
+    public function item()
+    {
+        return $this->belongsTo(Item::class);
+    }
 
     public function product()
     {
@@ -36,5 +38,10 @@ class Item extends Model
     public function supplier()
     {
         return $this->belongsTo(Supplier::class);
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
     }
 }
