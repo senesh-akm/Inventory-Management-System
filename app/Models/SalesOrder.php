@@ -15,12 +15,30 @@ class SalesOrder extends Model
 
     protected $fillable = [
         'SalesOrderID',
+        'Status',
         'CustomerCode',
         'ProductCode',
         'ItemCode',
         'OrderDate',
         'Qty',
         'UnitPrice',
+        'Is_Tax',
+        'Tax',
         'TotalAmount',
     ];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function item()
+    {
+        return $this->belongsTo(Item::class);
+    }
 }

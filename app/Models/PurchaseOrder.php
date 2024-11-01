@@ -15,11 +15,24 @@ class PurchaseOrder extends Model
 
     protected $fillable = [
         'PurchaseOrderID',
+        'Status',
         'SupplierCode',
         'ItemCode',
         'OrderDate',
         'Qty',
         'UnitPrice',
+        'Is_Tax',
+        'Tax',
         'TotalAmount',
     ];
+
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
+    }
+
+    public function item()
+    {
+        return $this->belongsTo(Item::class);
+    }
 }

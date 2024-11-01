@@ -13,11 +13,17 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->string('ItemCode')->primary()->unique();
+            $table->string('ItemPicture')->nullable();
+            $table->date('WarrantyDate');
             $table->string('ItemName');
-            $table->string('ItemSerial')->nullable();
+            $table->string('ItemSerial')->nullable()->unique();
             $table->string('ProductCode');
             $table->string('Description')->nullable();
-            $table->decimal('UnitPrice');
+            $table->string('ReceiivedSupplier');
+            $table->string('UnitPrice');
+            $table->boolean('TaxStatus');
+            $table->string('Tax');
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -10,7 +10,6 @@ class Adjestment extends Model
     use HasFactory;
 
     protected $primaryKey = 'ReturnCode';
-
     public $incrementing = false;
 
     protected $fillable = [
@@ -20,8 +19,22 @@ class Adjestment extends Model
         'ItemCode',
         'ItemSerial',
         'ReturnDate',
-        'Quantity',
         'Reason',
         'ReceivePerson'
     ];
+
+    public function adjestment()
+    {
+        return $this->belongsTo(Customer::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function item()
+    {
+        return $this->belongsTo(Item::class);
+    }
 }

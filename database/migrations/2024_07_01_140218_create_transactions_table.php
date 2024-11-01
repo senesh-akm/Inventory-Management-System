@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->string('TransactionCode')->primary()->unique();
             $table->string('ItemCode');
+            $table->string('ItemSerial')->nullable()->unique();
             $table->date('Date');
-            $table->integer('Qty');
             $table->string('TransactionType');
             $table->string('StockLocation');
             $table->timestamps();

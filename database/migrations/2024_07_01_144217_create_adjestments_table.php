@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('ItemCode');
             $table->string('ItemSerial')->nullable();
             $table->string('ReturnDate');
-            $table->integer('Quantity');
             $table->string('Reason');
             $table->string('ReceivePerson');
             $table->timestamps();

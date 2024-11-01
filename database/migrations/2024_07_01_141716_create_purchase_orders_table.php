@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('purchase_orders', function (Blueprint $table) {
             $table->string('PurchaseOrderID')->primary();
+            $table->string('Status');
             $table->string('SupplierCode');
             $table->string('ItemCode');
             $table->date('OrderDate');
             $table->integer('Qty');
             $table->string('UnitPrice');
+            $table->boolean('Is_Tax');
+            $table->string('Tax');
             $table->string('TotalAmount');
             $table->timestamps();
         });
