@@ -36,6 +36,7 @@ class AuthController extends Controller
     public function registerPost(Request $request)
     {
         $request->validate([
+            'emp_image' => 'required|image|mimes:png,jpg,jpeg,gif,svg|max:2048',
             'empnumber' => 'required|string|unique:users',
             'empname' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users',
@@ -43,7 +44,13 @@ class AuthController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
 
+        $empImage = null;
+        if ($request->hasFile('emp_image')) {
+            $empImage = $request->file('emp_image')->store('emp_images', 'public');
+        }
+
         $user = User::create([
+            'emp_image' => $empImage,
             'empnumber' => $request->empnumber,
             'empname' => $request->empname,
             'email' => $request->email,
@@ -62,7 +69,6 @@ class AuthController extends Controller
         Auth::logout();
 
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
 
         return redirect()->route('login')->with('success', 'Logged out successfully');
