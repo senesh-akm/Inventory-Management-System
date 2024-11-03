@@ -30,7 +30,8 @@ class AuthController extends Controller
 
     public function register()
     {
-        return view('auth.register');
+        $users = User::all();
+        return view('auth.register', compact('users'));
     }
 
     public function registerPost(Request $request)
@@ -72,5 +73,13 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('login')->with('success', 'Logged out successfully');
+    }
+
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('register')->with('success', 'Employee deleted successfully.');
     }
 }
