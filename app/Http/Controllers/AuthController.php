@@ -14,6 +14,12 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+    public function show($id)
+    {
+        $user = User::findOrFail($id); // Ensure the user exists
+        return view('auth.profile', compact('user'));
+    }
+
     public function loginPost(Request $request)
     {
         $request->validate([
@@ -63,6 +69,38 @@ class AuthController extends Controller
         Auth::login($user);
 
         return redirect()->route('home')->with('success', 'Registration Successful');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $validatedData = $request->validate([
+            'empnumber' => 'required|string|max:255',
+            'empname' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'role' => 'required|string|max:255',
+            'password' => 'nullable|confirmed|min:6',
+            'emp_image' => 'nullable|image|max:2048',
+        ]);
+
+        if ($request->hasFile('emp_image')) {
+            $path = $request->file('emp_image')->store('emp_images', 'public');
+            $user->emp_image = $path;
+        }
+
+        $user->empnumber = $validatedData['empnumber'];
+        $user->empname = $validatedData['empname'];
+        $user->email = $validatedData['email'];
+        $user->role = $validatedData['role'];
+
+        if ($validatedData['password']) {
+            $user->password = bcrypt($validatedData['password']);
+        }
+
+        $user->save();
+
+        return redirect()->route('profile.show', $user->id)->with('success', 'Profile updated successfully.');
     }
 
     public function logout(Request $request)

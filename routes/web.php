@@ -26,6 +26,8 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'registerPost'])->name('register.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::delete('/users/{id}', [AuthController::class, 'destroy'])->name('register.destroy');
+Route::get('/profile/{id}', [AuthController::class, 'show'])->name('profile.show');
+Route::put('/profile/{id}', [AuthController::class, 'update'])->name('profile.update');
 
 // customer module
 Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');

@@ -38,13 +38,13 @@
                                 <img src="{{ asset('storage/' . Auth::user()->emp_image) }}" alt="Profile Image" class="rounded-circle me-2" style="width: 30px; height: 30px; object-fit: cover;">
                             @else
                                 {{-- Placeholder image if no profile image exists --}}
-                                <img src="{{ asset('images/default-profile.png') }}" alt="Default Profile" class="rounded-circle me-2" style="width: 30px; height: 30px; object-fit: cover;">
+                                <img src="{{ asset('images/default-profile.jpg') }}" alt="Default Profile" class="rounded-circle me-2" style="width: 30px; height: 30px; object-fit: cover;">
                             @endif
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             {{-- Profile link --}}
-                            <a class="dropdown-item" href="">
+                            <a class="dropdown-item" href="{{ route('profile.show', Auth::user()->id) }}">
                                 {{ __('Profile') }}
                             </a>
 
