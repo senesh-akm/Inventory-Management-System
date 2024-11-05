@@ -11,6 +11,7 @@ use App\Http\Controllers\SalesOrderController;
 use App\Http\Controllers\StockLocationController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UserPermissionController;
 use App\Http\Controllers\WarehouseController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,11 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::delete('/users/{id}', [AuthController::class, 'destroy'])->name('register.destroy');
 Route::get('/profile/{id}', [AuthController::class, 'show'])->name('profile.show');
 Route::put('/profile/{id}', [AuthController::class, 'update'])->name('profile.update');
+
+Route::get('/user-permissions', [UserPermissionController::class, 'index'])->name('user-permissions.index');
+Route::post('/user-permissions', [UserPermissionController::class, 'store'])->name('user-permissions.store');
+Route::get('/user-permissions/{id}', [UserPermissionController::class, 'getUserPermissions']);
+Route::put('/user-permissions/{id}', [UserPermissionController::class, 'update']);
 
 // customer module
 Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
