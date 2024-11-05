@@ -95,7 +95,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center" href="#" onclick="setActive(this)">
+                            <a class="nav-link d-flex align-items-center" href="{{ route('user-permissions.index') }}" onclick="setActive(this)">
                                 <i class="bi bi-key me-2" style="font-size: 1rem;"></i> User Permissions
                             </a>
                         </li>
