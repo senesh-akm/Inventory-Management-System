@@ -49,7 +49,7 @@
                             {{-- Employee Number Input --}}
                             <div class="form-group mb-3 col-md-4">
                                 <label for="empnumber" class="col-form-label">{{ __('Employee Number') }}</label>
-                                <input id="empnumber" type="text" class="form-control @error('empnumber') is-invalid @enderror" name="empnumber" value="{{ old('empnumber') }}" required autofocus placeholder="e.g.: EMP001">
+                                <input id="empnumber" type="text" class="form-control @error('empnumber') is-invalid @enderror" name="empnumber" value="{{ old('empnumber', $newEmpNumber) }}" required autofocus readonly placeholder="e.g.: EMP001">
                                 @error('empnumber')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -172,7 +172,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this employee?')">
-                                                {{ __('Delete') }}
+                                                <i class="bi bi-trash"></i>
                                             </button>
                                         </form>
                                     </td>
