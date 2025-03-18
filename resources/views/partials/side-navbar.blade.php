@@ -82,7 +82,7 @@
                     <i class="bi bi-arrow-repeat me-2"></i> Transaction
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mb-4">
                 <a class="nav-link collapsed d-flex align-items-center" data-bs-toggle="collapse" href="#settingsSubMenu" role="button" aria-expanded="false" aria-controls="settingsSubMenu" onclick="setActive(this)">
                     <i class="bi bi-sliders me-2"></i>
                     <span>Settings</span>

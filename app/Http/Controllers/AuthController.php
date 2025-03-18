@@ -36,14 +36,18 @@ class AuthController extends Controller
 
     public function register()
     {
-        $users = User::all();
-        return view('auth.register', compact('users'));
+        $users = User::orderby('empnumber')->paginate(15);
+
+        $lastUser = User::latest()->first();
+        $newEmpNumber = $lastUser ? 'EMP' . str_pad(((int)substr($lastUser->empnumber, 3)) + 1, 3, '0', STR_PAD_LEFT) : 'EMP001';
+
+        return view('auth.register', compact('users', 'newEmpNumber'));
     }
 
     public function registerPost(Request $request)
     {
         $request->validate([
-            'emp_image' => 'required|image|mimes:png,jpg,jpeg,gif,svg|max:2048',
+            'emp_image' => 'nullable|image|mimes:png,jpg,jpeg,gif,svg|max:2048',
             'empnumber' => 'required|string|unique:users',
             'empname' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users',
@@ -65,8 +69,6 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
             'is_active' => true,
         ]);
-
-        Auth::login($user);
 
         return redirect()->route('home')->with('success', 'Registration Successful');
     }
