@@ -16,8 +16,8 @@
                                     <i class="bi bi-wallet-fill icon-large"></i>
                                 </div>
                                 <div class="ml-3">
-                                    <h5 class="card-title">Sales Orders</h5>
-                                    <h3 class="card-text">10</h3>
+                                    <h5 class="card-title">{{ __('Sales Orders') }}</h5>
+                                    <h3 class="card-text">{{ $salesOrdersCount ?? 0 }}</h3>
                                 </div>
                             </div>
                         </div>
@@ -30,8 +30,8 @@
                                     <i class="bi bi-cart4 icon-large"></i>
                                 </div>
                                 <div class="ml-3">
-                                    <h5 class="card-title">Purchase Orders</h5>
-                                    <h3 class="card-text">3</h3>
+                                    <h5 class="card-title">{{ __('Purchase Orders') }}</h5>
+                                    <h3 class="card-text">{{ $purchaseOrdersCount ?? 0 }}</h3>
                                 </div>
                             </div>
                         </div>
@@ -44,8 +44,8 @@
                                     <i class="bi bi-box-seam icon-large"></i>
                                 </div>
                                 <div class="ml-3">
-                                    <h5 class="card-title">Available Items</h5>
-                                    <h3 class="card-text">143</h3>
+                                    <h5 class="card-title">{{ __('Available Items') }}</h5>
+                                    <h3 class="card-text">{{ $availableItemsCount ?? 0 }}</h3>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="ml-3">
                                     <h5 class="card-title">Sold Items</h5>
-                                    <h3 class="card-text">201</h3>
+                                    <h3 class="card-text">0</h3>
                                 </div>
                             </div>
                         </div>
