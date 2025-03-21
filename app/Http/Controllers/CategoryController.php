@@ -28,10 +28,13 @@ class CategoryController extends Controller
     {
         $request->validate([
             'CategorName' => 'required|string|max:30',
-            'Description' => 'required|string|max:255'
+            'Description' => 'string|max:255'
         ]);
 
-        Category::create($request->only(['CategorName', 'Description']));
+        Category::create([
+            'CategorName' => $request->CategorName,
+            'Description' => $request->Description,
+        ]);
 
         return redirect()->route('productCategories.index')->with('success', 'Product Category Added Successfully!');
     }

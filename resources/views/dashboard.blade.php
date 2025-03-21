@@ -58,8 +58,8 @@
                                     <i class="bi bi-bag-check icon-large"></i>
                                 </div>
                                 <div class="ml-3">
-                                    <h5 class="card-title">Sold Items</h5>
-                                    <h3 class="card-text">0</h3>
+                                    <h5 class="card-title">{{ __('Customers') }}</h5>
+                                    <h3 class="card-text">{{ $customersCount ?? 0 }}</h3>
                                 </div>
                             </div>
                         </div>

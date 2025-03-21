@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Models\Item;
 use App\Models\PurchaseOrder;
 use App\Models\SalesOrder;
@@ -14,7 +15,8 @@ class DashboardController extends Controller
         $salesOrdersCount = SalesOrder::count();
         $purchaseOrdersCount = PurchaseOrder::count();
         $availableItemsCount = Item::count();
+        $customersCount = Customer::count();
 
-        return view('home', compact('salesOrdersCount', 'purchaseOrdersCount', 'availableItemsCount'));
+        return view('dashboard', compact('salesOrdersCount', 'purchaseOrdersCount', 'availableItemsCount', 'customersCount'));
     }
 }

@@ -36,7 +36,7 @@ class ProductController extends Controller
         $request->validate([
             'ProductCode' => 'required|string|max:50',
             'ProductName' => 'required|string|max:255',
-            'Description' => 'required|string|max:255',
+            'Description' => 'string|max:255',
             'ProductCategory' => 'required|string|max:255',
             'SupplierName' => 'required|string|max:255',
         ]);
@@ -51,7 +51,7 @@ class ProductController extends Controller
         $request->validate([
             'ProductCode' => 'required|string|max:50',
             'ProductName' => 'required|string|max:255',
-            'Description' => 'required|string|max:255',
+            'Description' => 'string|max:255',
             'ProductCategory' => 'required|string|max:255',
             'SupplierName' => 'required|string|max:255',
         ]);

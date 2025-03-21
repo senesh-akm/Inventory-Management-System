@@ -30,12 +30,14 @@
                         </td>
                         <td>{{ $item->ItemName }}</td>
                         <td>{{ $item->ItemSerial }}</td>
-                        <td>{{ $item->UnitPrice }}</td>
+                        <td>{{ number_format($item->UnitPrice, 2) }}</td>
                         <td>
                             <form action="{{ route('items.destroy', $item->ItemCode) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="bi bi-trash"></i>
+                                </button>
                             </form>
                         </td>
                     </tr>
