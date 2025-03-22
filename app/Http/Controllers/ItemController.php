@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\Product;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -20,14 +21,16 @@ class ItemController extends Controller
     {
         $item = Item::findOrFail($ItemCode);
         $products = Product::all();
-        return view('item', compact('item', 'products'));
+        $suppliers = Supplier::all();
+        return view('item', compact('item', 'products', 'suppliers'));
     }
 
     // Show form to create a new item
     public function create()
     {
         $products = Product::all();
-        return view('item', compact('products'));
+        $suppliers = Supplier::all();
+        return view('item', compact('products', 'suppliers'));
     }
 
     // Store a newly created item in the database
@@ -43,13 +46,6 @@ class ItemController extends Controller
         Item::create($request->all());
 
         return redirect()->route('items.index')->with('success', 'Item created successfully.');
-    }
-
-    // Show form to edit an existing item
-    public function edit($ItemCode)
-    {
-        $item = Item::find($ItemCode);
-        return view('item', compact('item'));
     }
 
     // Update an existing item in the database

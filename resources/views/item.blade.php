@@ -20,9 +20,20 @@
                             <div class="invalid-feedback">Item code is required.</div>
                         </div>
                         <div class="form-group mt-3">
+                            <label for="ItemPicture">Item Picture</label>
+                            <input type="file" class="form-control" id="ItemPicture" name="ItemPicture">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="WarrantyDate">Warranty Date</label>
+                            <input type="date" class="form-control" id="WarrantyDate" name="WarrantyDate" value="{{ isset($item) ? $item->WarrantyDate : '' }}" required>
+                        </div>
+                        <div class="form-group mt-3">
                             <label for="ItemName">Item Name</label>
                             <input type="text" class="form-control" id="ItemName" name="ItemName" value="{{ isset($item) ? $item->ItemName : '' }}" required placeholder="e.g.: Apple iPhone 16 Pro Max">
-                            <div class="invalid-feedback">Item name is required.</div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="ItemSerial">Item Serial</label>
+                            <input type="text" class="form-control" id="ItemSerial" name="ItemSerial" value="{{ isset($item) ? $item->ItemSerial : '' }}" required placeholder="e.g.: AP554571455">
                         </div>
                         <div class="form-group mt-3">
                             <label for="ProductCode">Product Code</label>
@@ -36,18 +47,41 @@
                             </select>
                         </div>
                         <div class="form-group mt-3">
+                            <label for="Description">Description</label>
+                            <textarea class="form-control" id="Description" name="Description" placeholder="e.g.: 32GB RAM | 256 GB SSD | Black | 2024 | 2 years warrenty">{{ isset($item) ? $item->Description : '' }}</textarea>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="ReceiivedSupplier">Received Supplier</label>
+                            <select class="form-control" name="ReceiivedSupplier" id="ReceiivedSupplier" required>
+                                <option value="">-- Select Supplier --</option>
+                                @foreach($suppliers as $supplier)
+                                    <option value="{{ $supplier->SupplierCode }}" {{ (isset($item) && $item->ReceiivedSupplier == $supplier->SupplierCode) ? 'selected' : '' }}>
+                                        {{ $supplier->Supplier }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group mt-3">
                             <label for="UnitPrice">Unit Price (LKR)</label>
                             <input type="number" step="0.01" class="form-control" id="UnitPrice" name="UnitPrice" value="{{ isset($item) ? $item->UnitPrice : '' }}" required placeholder="e.g.: 638000">
-                            <div class="invalid-feedback">Unit price is required.</div>
                         </div>
                         <div class="form-group mt-3">
-                            <label for="Description">Description</label>
-                            <textarea class="form-control" id="Description" name="Description" required placeholder="e.g.: 32GB RAM | 256 GB SSD | Black | 2024 | 2 years warrenty">{{ isset($item) ? $item->Description : '' }}</textarea>
+                            <label for="TaxStatus">Tax Status</label>
+                            <select class="form-control" id="TaxStatus" name="TaxStatus" required>
+                                <option value="1" {{ isset($item) && $item->TaxStatus ? 'selected' : '' }}>Taxable</option>
+                                <option value="0" {{ isset($item) && !$item->TaxStatus ? 'selected' : '' }}>Non-Taxable</option>
+                            </select>
                         </div>
                         <div class="form-group mt-3">
-                            <label for="ItemSerial">Item Serial</label>
-                            <input type="text" class="form-control" id="ItemSerial" name="ItemSerial" value="{{ isset($item) ? $item->ItemSerial : '' }}" required placeholder="e.g.: AP554571455">
-                            <div class="invalid-feedback">Item serial is required.</div>
+                            <label for="Tax">Tax %</label>
+                            <input type="text" class="form-control" id="Tax" name="Tax" value="{{ isset($item) ? $item->Tax : '' }}" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="status">Status</label>
+                            <select class="form-control" id="status" name="status" required>
+                                <option value="1" {{ isset($item) && $item->status ? 'selected' : '' }}>In-Stock</option>
+                                <option value="0" {{ isset($item) && !$item->status ? 'selected' : '' }}>Out-of-Stock</option>
+                            </select>
                         </div>
                     </div>
                 </div>
