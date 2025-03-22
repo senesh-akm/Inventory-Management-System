@@ -30,10 +30,6 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group mt-3">
-                            <label for="Qty">Quantity</label>
-                            <input type="text" class="form-control" id="Qty" name="Qty" value="{{ isset($stocklocation) ? $stocklocation->Qty : '' }}" required placeholder="e.g.: WAREHOUSE-GMP-01">
-                        </div>
                     </div>
                 </div>
             </div>

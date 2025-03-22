@@ -22,7 +22,7 @@ class StockLocationController extends Controller
 
     public function show($WarehouseCode)
     {
-        $stocklocations = StockLocation::findOrFail($WarehouseCode);
+        $stocklocation = StockLocation::findOrFail($WarehouseCode);
         $products = Product::all();
         return view('stocklocation', compact('stocklocation', 'products'));
     }
@@ -32,7 +32,6 @@ class StockLocationController extends Controller
         $request->validate([
             'WarehouseCode' => 'required|string',
             'ProductCode' => 'required|string',
-            'Qty' => 'integer',
         ]);
 
         StockLocation::create($request->all());
@@ -45,7 +44,6 @@ class StockLocationController extends Controller
         $request->validate([
             'WarehouseCode' => 'required|string',
             'ProductCode' => 'required|string',
-            'Qty' => 'integer',
         ]);
 
         $stocklocations = StockLocation::findOrFail($WarehouseCode);
