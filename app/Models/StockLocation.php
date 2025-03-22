@@ -9,6 +9,9 @@ class StockLocation extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'WarehouseCode';
+    public $incrementing = false;
+
     protected $fillable = [
         'WarehouseCode',
         'ProductCode',
