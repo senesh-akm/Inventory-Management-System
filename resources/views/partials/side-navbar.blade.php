@@ -9,7 +9,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link d-flex align-items-center" href="{{ route('adjestments.index') }}" onclick="setActive(this)">
-                    <i class="bi bi-gear me-2"></i> Adjustment
+                    <i class="bi bi-gear me-2"></i> Adjestment
                 </a>
             </li>
             <li class="nav-item">
@@ -82,7 +82,7 @@
                     <i class="bi bi-arrow-repeat me-2"></i> Transaction
                 </a>
             </li>
-            <li class="nav-item mb-4">
+            <li class="nav-item">
                 <a class="nav-link collapsed d-flex align-items-center" data-bs-toggle="collapse" href="#settingsSubMenu" role="button" aria-expanded="false" aria-controls="settingsSubMenu" onclick="setActive(this)">
                     <i class="bi bi-sliders me-2"></i>
                     <span>Settings</span>
@@ -102,6 +102,26 @@
                         <li class="nav-item">
                             <a class="nav-link d-flex align-items-center" href="#" onclick="setActive(this)">
                                 <i class="bi bi-palette me-2" style="font-size: 1rem;"></i> Themes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item mb-4">
+                <a class="nav-link collapsed d-flex align-items-center" data-bs-toggle="collapse" href="#reportsSubMenu" role="button" aria-expanded="false" aria-controls="settingsSubMenu" onclick="setActive(this)">
+                    <i class="bi bi-sliders me-2"></i>
+                    <span>Reports</span>
+                </a>
+                <div class="collapse" id="reportsSubMenu">
+                    <ul class="nav flex-column ms-3">
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center" href="#" onclick="setActive(this)">
+                                <i class="bi bi-person me-2" style="font-size: 1rem;"></i> Sale Report
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center" href="#" onclick="setActive(this)">
+                                <i class="bi bi-key me-2" style="font-size: 1rem;"></i> Purchase Report
                             </a>
                         </li>
                     </ul>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserPermission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -70,6 +71,31 @@ class AuthController extends Controller
             'is_active' => true,
         ]);
 
+        UserPermission::create([
+            'user_id' => $user->id,
+            'dashboard' => true,
+            'adjestment' => false,
+            'customer' => false,
+            'supplier' => false,
+            'item' => false,
+            'products' => false,
+            'product_category' => false,
+            'product' => false,
+            'purchase_order' => false,
+            'sales_order' => false,
+            'store' => false,
+            'warehouse' => false,
+            'stock_location' => false,
+            'transaction' => false,
+            'settings' => false,
+            'users' => false,
+            'user_permission' => false,
+            'theme' => false,
+            'reports' => false,
+            'sales_report' => false,
+            'purchase_report' => false,
+        ]);
+
         return redirect()->route('home')->with('success', 'Registration Successful');
     }
 
@@ -118,7 +144,10 @@ class AuthController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
+        $userPermission = UserPermission::findOrFail($id);
+
         $user->delete();
+        $userPermission->delete();
 
         return redirect()->route('register')->with('success', 'Employee deleted successfully.');
     }
